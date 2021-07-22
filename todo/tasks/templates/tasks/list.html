@@ -1,31 +1,48 @@
-<h3>To Do</h3>
+{% extends "tasks/base.html" %}  
 
-<form method="POST" action="/">
+{% load static %}  
+
+{% block content %}  
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+      
+      <form method="POST" action="/" class="d-flex">
+        {% csrf_token %} 
+        <span class="mr-3">{{form.title}}</span>
+        <input class="btn btn-outline-success me-2 ml-5" type="submit" name="Create Task" placeholder="" aria-label="Agregar" value="Agregar">
+   
+      </form>
+    </div>
+  </nav>
+
+
+<div class="col">
+{% for task in tasks %}     
     
-    {% csrf_token %} 
+    <ul>
+        <li>
+            {% if task.complete == True %} 
 
-    {{form.title}}
-    <input type="submit" name="Create Task">
+            <span  style="text-decoration: line-through;"> {{task}}</span>
 
-</form>
+            {% else %} 
 
-{% for task in tasks %}  
+            <span >{{task}}</span>
 
-<div>
-    <a href="{% url 'update_task' task.id %}">Update</a>
-    <a href="{% url 'delete' task.id %}">Delete</a>
-
-    {% if task.complete == True %} 
-
-    <span style="text-decoration: line-through;"> {{task}}</span>
-
-    {% else %} 
-
-    <span>{{task}}</span>
-
-    {% endif %}
-
-    
-</div>
+            {% endif %}   
+            <div style="float: right; ">
+            <a class="btn btn-outline-warning me-2" href="{% url 'update_task' task.id %}" role="button">Modificar</a>   
+       
+            <a class="btn btn-outline-danger me-2" href="{% url 'delete' task.id %}" role="button">Eliminar</a>   
+            </div>
+            
+        </li>   
+    </ul>
 
 {% endfor %} 
+</div>
+
+
+
+{% endblock %}

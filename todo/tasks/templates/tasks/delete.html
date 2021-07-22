@@ -1,7 +1,22 @@
-<p>Are you sure you want to delete "{{item}}"?</p>
-<a href="{% url 'list' %}">Cancel</a>
+{% extends "tasks/base.html" %}  
 
-<form method="POST" action="">
+{% load static %}  
+
+{% block content %}  
+
+<form class="form"  method="POST" action="">
     {% csrf_token %}  
-    <input type="submit" name="confirm">
-</form>
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+            <p class="pr-5">¿Segurx que querés borrar esta tarea =><i> "{{item}}"?</i></p>
+        <div class="mt-2 pt-2 border-top">
+            <input type="submit" name="confirm" class="btn btn-primary btn-sm" value="Sí, borrar" role="button">
+       
+            <a type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast" href="{% url 'list' %}" role="button">Aún no</a>
+            
+        </div>
+        </div>
+    </div>
+
+
+{% endblock %}
