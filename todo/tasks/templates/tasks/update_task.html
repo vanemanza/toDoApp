@@ -7,7 +7,6 @@
 
 <h3>Modificar</h3>
 
-
 <form class="row g-3" method="POST" action="">
     {% csrf_token %}  
     <div class="col-md-6">
@@ -15,18 +14,18 @@
     </div>
    
     <div class="col-12">
-      <div class="form-inline">
-      
-        <input class="form-check-input" type="checkbox" id="gridCheck" value="{{form.complete}}">
+      <div class="form-inline">      
+        <input class="form-check-input" type="checkbox" id="gridCheck" >
         <label class="form-check-label" for="gridCheck">
           Tarea Finalizada 
         </label>
       </div>
     </div>
-    <div class="col-12">
-      <input class="btn btn-outline-success" type="submit" name="Update Task" value="Confirmar ahora" role="button">
 
+    <div class="col-12">
+      <input class="btn btn-outline-success" type="submit" name="Update Task" value="Confirmar" role="button">
     </div>
+
   </form>
 
 {% endblock %}  
