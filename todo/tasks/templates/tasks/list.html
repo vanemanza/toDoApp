@@ -4,12 +4,12 @@
 
 {% block content %}  
 
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light ">
     <div class="container">
       
       <form method="POST" action="/" class="d-flex">
         {% csrf_token %} 
-        <span class="mr-3">{{form.title}}</span>
+        <span class="mr-3" >{{form.title}}</span>
         <input class="btn btn-outline-success me-2 ml-5" type="submit" name="Create Task" placeholder="" aria-label="Agregar" value="Agregar">
    
       </form>
