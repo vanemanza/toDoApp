@@ -4,7 +4,6 @@
 
 {% block content %}  
 
-
 <h3 class="mb-5">Modificar</h3>
 
 <form  method="POST" action="">
@@ -13,11 +12,10 @@
       <div class="col-3">{{form.title}}</div>
       <div class="col-3">
         <p>Tarea finalizada<span class="m-2">{{form.complete}}</span></p>
-    </div>
+      </div>
 
     <input class="btn btn-outline-success" type="submit" name="Update Task" value="Confirmar">
     </div>
-
   </form>
 
 {% endblock %}  
