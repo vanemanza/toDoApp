@@ -1,1 +1,0 @@
-web: cd toDoList && gunicorn todo.wsgi --log-file -
